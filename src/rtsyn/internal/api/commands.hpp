@@ -37,6 +37,8 @@ bool push_remove_connection(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq
 bool push_set_param(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq, std::uint32_t node_id,
                     std::uint32_t param_id, rtsyn_abi_value_type_t value_type,
                     const rtsyn_spsc_command_param_value_t &value);
+bool push_runtime_period(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq,
+                         std::uint64_t period_ns);
 
 } // namespace rtsyn::api::internal
 
