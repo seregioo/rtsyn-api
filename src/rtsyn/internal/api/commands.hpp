@@ -28,6 +28,8 @@ bool push_load_node(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq,
                     rtsyn_abi_node_type_t node_type, const std::string &module_path);
 bool push_add_node(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq,
                    rtsyn_abi_node_type_t node_type, const std::string &node_name);
+bool push_remove_node(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq,
+                      std::uint32_t node_id);
 bool push_add_connection(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq,
                          std::uint32_t connection_id, std::uint32_t source_node_id,
                          std::uint32_t source_port_id, std::uint32_t destination_node_id,
@@ -37,6 +39,13 @@ bool push_remove_connection(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq
 bool push_set_param(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq, std::uint32_t node_id,
                     std::uint32_t param_id, rtsyn_abi_value_type_t value_type,
                     const rtsyn_spsc_command_param_value_t &value);
+bool push_runtime_period(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq,
+                         std::uint64_t period_ns);
+bool push_runtime_priority(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq,
+                           std::int32_t priority);
+bool push_runtime_deadline_tolerance(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq,
+                                     std::uint64_t tolerance_ns);
+bool push_runtime_nodes_request(rtsyn_spsc_command_queue_t *queue, std::uint64_t seq);
 
 } // namespace rtsyn::api::internal
 
